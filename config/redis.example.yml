@@ -1,0 +1,9 @@
+base: &base
+  url: redis://localhost:6379/0
+
+development:
+  namespace: ingress_development
+
+test:
+  <<: *base
+  namespace: ingress_test

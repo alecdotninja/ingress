@@ -1,0 +1,12 @@
+base: &base
+  interface: null
+
+development:
+  <<: *base
+
+test:
+  <<: *base
+
+production:
+  <<: *base
+  interface: wlan0

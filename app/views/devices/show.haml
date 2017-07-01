@@ -1,0 +1,48 @@
+.page-header
+  .pull-right
+    %a.btn.btn-lg.btn-primary{href: edit_device_path(device)}
+      Edit
+
+    %a.btn.btn-lg.btn-danger{href: device_path(device), data: { method: 'delete', confirm: "Are you sure you want to destroy #{device.display_name}?" }}
+      Destroy
+
+  %h1= device.display_name
+
+.row
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        Details
+      .panel-body
+        .row
+          .col-sm-4
+            %strong Name
+          .col-sm-8
+            = device.name
+        .row
+          .col-sm-4
+            %strong Theme Song
+          .col-sm-8
+            - if device.theme_song?
+              = link_to device.theme_song_file_name, device.theme_song.url
+
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        Network
+      .panel-body
+        .row
+          .col-sm-4
+            %strong MAC Address
+          .col-sm-8
+            = device.mac_addr
+        .row
+          .col-sm-4
+            %strong Connected?
+          .col-sm-8
+            = device.connected?
+        .row
+          .col-sm-4
+            %strong Current IP Address
+          .col-sm-8
+            = device.current_ip_addr

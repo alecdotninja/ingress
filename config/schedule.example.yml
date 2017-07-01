@@ -1,0 +1,11 @@
+base: &base
+  network_scan:
+    class: NetworkScanJob
+    cron: "*/30 * * * * *"
+    queue: default
+
+development:
+  <<: *base
+
+test:
+  <<: *base

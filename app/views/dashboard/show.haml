@@ -1,0 +1,6 @@
+.row
+  - Device.having_theme_song.order(name: :asc, current_ip_addr: :asc, mac_addr: :asc).each do |device|
+    .col-md-4
+      .panel{class: device.connected? ? 'panel-success' : 'panel-danger'}
+        .panel-body.text-center
+          %h4= device.display_name

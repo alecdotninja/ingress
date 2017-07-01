@@ -1,0 +1,10 @@
+.page-header
+  .pull-right
+    %a.btn.btn-lg.btn-success{href: new_device_path}
+      New Device
+
+  %h1 Devices
+
+.panel.panel-default
+  .table-responsive
+    = render 'devices/table', devices: devices

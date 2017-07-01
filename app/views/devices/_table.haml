@@ -1,0 +1,24 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th MAC Address
+      %th Name
+      %th Current IP Address
+      %th Theme Song
+      %th
+  %tbody
+    - devices.each do |device|
+      %tr{ data: { device_id: device.id } }
+        %td= device.mac_addr
+        %td= device.name
+        %td= device.current_ip_addr
+        %th= device.theme_song_file_name
+        %td
+          .btn-toolbar.pull-right
+            .btn-group.btn-group-xs
+              %a.btn.btn-info{href: device_path(device)}
+                Show
+              %a.btn.btn-primary{href: edit_device_path(device)}
+                Edit
+              %a.btn.btn-danger{href: device_path(device), data: { method: 'delete', confirm: "Are you sure you want to destroy #{device.display_name}?" }}
+                Destroy

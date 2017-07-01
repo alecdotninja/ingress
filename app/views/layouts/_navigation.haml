@@ -1,0 +1,15 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{type: 'button', data: { target: '#navbar', toggle: 'collapse' }, aria_controls: 'navbar', aria_expanded: 'false'}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: root_path} Ingress
+    #navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li{class: "#{'active' if controller_name == 'dashboard'}"}
+          = link_to 'Dashboard', root_path
+        %li{class: "#{'active' if controller_name == 'devices'}"}
+          = link_to 'Devices', devices_path

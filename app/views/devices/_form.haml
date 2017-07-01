@@ -1,0 +1,20 @@
+= form_for device, html: { class: 'form-horizontal', role: 'form' } do |f|
+  - if f.object.new_record?
+    .form-group
+      = f.label :mac_addr, 'MAC Address', class: 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :mac_addr, class: 'form-control'
+
+  .form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :theme_song, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.file_field :theme_song, class: 'form-control'
+
+  .form-group.panel-footer
+    .col-sm-offset-2.col-sm-10.text-right
+      = f.submit class: 'btn btn-primary'
