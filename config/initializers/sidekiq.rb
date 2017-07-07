@@ -4,6 +4,7 @@ require 'sidekiq/cron'
 sidekiq_redis_config = Rails.application.config_for(:redis)&.deep_symbolize_keys
 sidekiq_cron_config = Rails.application.config_for(:schedule)&.deep_symbolize_keys
 
+Sidekiq.default_worker_options.merge! retry: false
 Sidekiq.average_scheduled_poll_interval = 10
 Sidekiq.options[:poll_interval] = 10
 
