@@ -5,8 +5,8 @@ sidekiq_redis_config = Rails.application.config_for(:redis)&.deep_symbolize_keys
 sidekiq_cron_config = Rails.application.config_for(:schedule)&.deep_symbolize_keys
 
 Sidekiq.default_worker_options.merge! retry: false
-Sidekiq.average_scheduled_poll_interval = 10
-Sidekiq.options[:poll_interval] = 10
+Sidekiq.average_scheduled_poll_interval = 5
+Sidekiq.options[:poll_interval] = 5
 
 configure_after_fork = proc do |config|
   config.redis = sidekiq_redis_config
